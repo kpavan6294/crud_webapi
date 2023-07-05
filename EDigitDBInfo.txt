@@ -1,0 +1,48 @@
+Database name: EDigitDB
+
+create table dbo.employees
+(
+id int,
+name varchar(200),
+emailid varchar(40),
+mobileno varchar(20),
+salary bigint
+)
+
+create procedure dbo.addemployee
+(
+@id int,
+@name varchar(200),
+@emailid varchar(40),
+@mobileno varchar(20),
+@salary bigint)
+as
+
+insert into dbo.employees (id,name,emailid,mobileno,salary)
+values (@id,@name,@emailid,@mobileno,@salary)
+
+
+
+create proc dbo.getemployeebyid
+(
+@id int
+)
+as
+select * from employees where id=@id
+
+
+
+create proc dbo.updateemployee
+(
+@id int,
+@name varchar(200),
+@emailid varchar(40),
+@mobileno varchar(20),
+@salary bigint
+)
+as
+update dbo.employees set name=@name, emailid=@emailid, mobileno=@mobileno, salary=@salary where id=@id
+
+
+
+
